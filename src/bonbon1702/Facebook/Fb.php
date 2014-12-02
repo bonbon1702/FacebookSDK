@@ -96,7 +96,7 @@ class Fb {
     {
         $session = $this->getFacebookHelper()->getSessionFromRedirect();
 
-        $this->session->put('facebook.session', $session);
+        $this->session->put('facebook.token', $session);
 
         return $session;
     }
