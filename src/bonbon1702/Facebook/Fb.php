@@ -22,10 +22,13 @@ class Fb {
 
     protected $config;
 
-    function __construct(Repository $config,Store $session, $app_id = null, $app_secret = null, $redirectUrl = null)
+    protected $redirect;
+
+    function __construct(Repository $config,Store $session ,Redirector $redirect, $app_id = null, $app_secret = null, $redirectUrl = null)
     {
         $this->config = $config;
         $this->session = $session;
+        $this->redirect = $redirect;
         $this->app_id = $app_id;
         $this->app_secret = $app_secret;
         $this->redirectUrl = $redirectUrl;
@@ -42,9 +45,15 @@ class Fb {
 
     public function getLoginUrl()
     {
+        $scope = $this->getScope();
         $helper = $this->getFacebookHelper();
 
-        return $helper->getLoginUrl();
+        return $helper->getLoginUrl($scope);
+    }
+
+    public function authenticate()
+    {
+        return $this->redirect->to($this->getLoginUrl());
     }
 
     public function getProfile(){
@@ -130,6 +139,11 @@ class Fb {
         $helper->disableSessionStatusCheck();
 
         return $helper;
+    }
+
+    public function getScope()
+    {
+        return $this->config->get('facebooksdk::scope');
     }
 
 }

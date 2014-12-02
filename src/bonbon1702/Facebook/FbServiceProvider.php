@@ -39,6 +39,7 @@ class FbServiceProvider extends ServiceProvider {
             return new Fb(
                 $app['config'],
                 $app['session.store'],
+                $app['redirect'],
                 $config['app_id'],
                 $config['app_secret'],
                 $config['redirect_url']
