@@ -8,6 +8,6 @@
 return array(
     'app_id'		=>	'',
     'app_secret'	=>	'',
-    'redirect_url'	=>	url('facebook/callback'),
+    'redirect_url'	=>	url('facebooksdk/callback'),
     'scope'			=>  array()
 );
