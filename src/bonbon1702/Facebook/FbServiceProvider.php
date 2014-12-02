@@ -35,7 +35,7 @@ class FbServiceProvider extends ServiceProvider {
     {
         $this->app['bonbon1702.facebooksdk'] = $this->app->share(function ($app)
         {
-            $config = $app['config']->get('facebook::config');
+            $config = $app['config']->get('facebooksdk::config');
             return new Fb(
                 $app['config'],
                 $app['session.store'],
