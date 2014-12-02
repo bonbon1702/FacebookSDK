@@ -6,7 +6,7 @@
  * Time: 4:11 PM
  */
 
-namespace bonbon1702\Fb\Facades;
+namespace bonbon1702\Facebook\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

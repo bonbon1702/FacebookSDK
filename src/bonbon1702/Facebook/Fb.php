@@ -6,7 +6,7 @@
  * Time: 10:26 PM
  */
 
-namespace bonbon1702\Fb;
+namespace bonbon1702\Facebook;
 
 use Illuminate\Http\Request;
 use Illuminate\Session\Store;

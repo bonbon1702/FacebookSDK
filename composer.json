@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-0": {
-            "bonbon1702\\Fb": "src/"
+            "bonbon1702\\Facebook": "src/"
         }
     }
 }

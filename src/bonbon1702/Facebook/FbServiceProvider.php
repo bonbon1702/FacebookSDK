@@ -6,7 +6,7 @@
  * Time: 4:06 PM
  */
 
-namespace bonbon1702\Fb;
+namespace bonbon1702\Facebook;
 
 use Illuminate\Support\ServiceProvider;
 
