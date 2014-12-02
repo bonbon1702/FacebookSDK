@@ -82,17 +82,12 @@ class Fb {
 
     public function hasSessionToken()
     {
-        if ($this->session->has('facebook.token')){
-            return true;
-        }
-
-        return false;
+        return $this->session->has('facebook.token');
     }
 
     public function getTokenFromRedirect()
     {
         $session = $this->getSessionFromRedirect();
-        $this->session->put('facebook.token', $session->getToken());
 
         return $session ? $session->getToken() : null;
     }
@@ -100,6 +95,8 @@ class Fb {
     public function getSessionFromRedirect()
     {
         $session = $this->getFacebookHelper()->getSessionFromRedirect();
+
+        $this->session->put('facebook.session', $session);
 
         return $session;
     }
