@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="927ca78e-9e90-48bf-b4cb-b612680ec2d3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="E:\Working\Package\FbSDK\src\bonbon1702\Facades\Fb.php" afterPath="$PROJECT_DIR$/src/bonbon1702/Facebook/Facades/Fb.php" />
-      <change type="MOVED" beforePath="E:\Working\Package\FbSDK\src\bonbon1702\Fb.php" afterPath="$PROJECT_DIR$/src/bonbon1702/Facebook/Fb.php" />
-      <change type="MOVED" beforePath="E:\Working\Package\FbSDK\src\bonbon1702\FbServiceProvider.php" afterPath="$PROJECT_DIR$/src/bonbon1702/Facebook/FbServiceProvider.php" />
     </list>
     <ignored path="FbSDK.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -261,7 +257,13 @@
       <option name="project" value="LOCAL" />
       <updated>1417511765689</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix class FB, add new Provider, Facades">
+      <created>1417512613436</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1417512613436</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -403,17 +405,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bonbon1702/Facebook/Fb.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="2193">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-          <folding>
-            <element signature="e#6#89#0#PHP" expanded="true" />
-            <element signature="e#123#151#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
       <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
         <state />
@@ -422,6 +413,17 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="19992">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bonbon1702/Facebook/Fb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="2193">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+          <folding>
+            <element signature="e#6#89#0#PHP" expanded="true" />
+            <element signature="e#123#151#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
