@@ -55,16 +55,28 @@ class Fb {
 
     public function logout()
     {
-        $session = new FacebookSession($this->getToken());
-        $this->session->forget('facebook.token');
+        $session = new FacebookSession($this->getAccessToken());
+        $this->session->forget('facebook.session');
+        $this->session->forget('facebook.access_token');
         $logoutURL = $this->getFacebookHelper()->getLogoutUrl($session,$this->redirectUrl);
 
         return $logoutURL;
     }
 
+    public function check()
+    {
+        $token = $this->getAccessToken();
+        if ( ! empty($token))
+        {
+            $this->putSessionToken($token);
+            return true;
+        }
+        return false;
+    }
+
     public function api($method,$path)
     {
-        $session = new FacebookSession($this->getToken());
+        $session = new FacebookSession($this->getAccessToken());
         $result = (new FacebookRequest(
             $session, $method, $path
         ))->execute()->getGraphObject(GraphUser::className());
@@ -72,17 +84,12 @@ class Fb {
         return $result;
     }
 
-    public function getToken()
+    public function getAccessToken()
     {
         if ($this->hasSessionToken()){
             return $this->getSessionToken();
         }
         return $this->getTokenFromRedirect();
-    }
-
-    public function hasSessionToken()
-    {
-        return $this->session->has('facebook.token');
     }
 
     public function getTokenFromRedirect()
@@ -96,14 +103,24 @@ class Fb {
     {
         $session = $this->getFacebookHelper()->getSessionFromRedirect();
 
-        $this->session->put('facebook.token', $session);
+        $this->session->put('facebook.session', $session);
 
         return $session;
     }
 
     public function getSessionToken()
     {
-        return $this->session->get('facebook.token');
+        return $this->session->get('facebook.access_token');
+    }
+
+    public function hasSessionToken()
+    {
+        return $this->session->has('facebook.access_token');
+    }
+
+    public function putSessionToken($token)
+    {
+        $this->session->put('facebook.access_token', $token);
     }
 
     public function getFacebookHelper()
