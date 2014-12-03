@@ -64,7 +64,7 @@ class Fb {
 
     public function getUserProfilePicture($type)
     {
-        $result = $this->api('GET','me/picture', array(
+        $result = $this->api('GET','/me/picture', array(
             'redirect' => false,
             'type' => $type,
         ));
