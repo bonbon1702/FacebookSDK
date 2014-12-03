@@ -8,7 +8,6 @@
 
 namespace bonbon1702\Facebook;
 
-use Illuminate\Http\Request;
 use Illuminate\Session\Store;
 use Illuminate\Config\Repository;
 use Illuminate\Routing\Redirector;
@@ -56,20 +55,36 @@ class Fb {
         return $this->redirect->to($this->getLoginUrl());
     }
 
-    public function getProfile(){
+    public function getProfile()
+    {
         $result = $this->api('GET', '/me');
+
+        return $result;
+    }
+
+    public function getUserProfilePicture($type)
+    {
+        $result = $this->api('GET','me/picture?type='.$type.'&&redirect=false');
+
+        return $result;
+    }
+
+    public function postToTimeLine($caption, $link, $message)
+    {
+        $result = $this->api('POST','/me/feed', array(
+            'caption' => $caption,
+            'link' => $link,
+            'message' => $message
+        ));
 
         return $result;
     }
 
     public function logout()
     {
-        $session = new FacebookSession($this->getAccessToken());
         $this->session->forget('facebook.session');
         $this->session->forget('facebook.access_token');
-        $logoutURL = $this->getFacebookHelper()->getLogoutUrl($session,$this->redirectUrl);
-
-        return $logoutURL;
+        return $this->redirect->to($this->redirectUrl);
     }
 
     public function check()
@@ -83,11 +98,11 @@ class Fb {
         return false;
     }
 
-    public function api($method,$path)
+    public function api($method,$path,$parameters = null)
     {
         $session = new FacebookSession($this->getAccessToken());
         $result = (new FacebookRequest(
-            $session, $method, $path
+            $session, $method, $path, $parameters
         ))->execute()->getGraphObject(GraphUser::className());
 
         return $result;
