@@ -72,12 +72,11 @@ class Fb {
         return $result;
     }
 
-    public function postToTimeLine($caption, $link, $message)
+    public function postToTimeLine($message, $link)
     {
         $result = $this->api('POST','/me/feed', array(
-            'caption' => $caption,
+            'message' => $message,
             'link' => $link,
-            'message' => $message
         ));
 
         return $result;
@@ -106,7 +105,7 @@ class Fb {
         $session = new FacebookSession($this->getAccessToken());
         $result = (new FacebookRequest(
             $session, $method, $path, $parameters
-        ))->execute()->getGraphObject(GraphUser::className());
+        ))->execute()->getGraphObject();
 
         return $result;
     }
