@@ -1,6 +1,7 @@
 {
     "name": "bonbon1702/facebooksdk",
     "description": "Easy way to use facebook SDK",
+    "keywords": ["oauth", "laravel", "facebook", "facebook-sdk-v4"],
     "authors": [
         {
             "name": "Nghiavt",
